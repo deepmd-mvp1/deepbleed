@@ -34,7 +34,7 @@ os.environ['FSLOUTPUTTYPE'] = 'NIFTI_GZ'
 os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 WEIGHT_PATH = 'weights'
 # set paths to scripts, templates, weights etc.
-TEMPLATE_PATH = os.path.join('templates', 'scct_unsmooth_SS_0.01_128x128x128.nii.gz')
+TEMPLATE_PATH = os.path.join('template', 'scct_unsmooth_SS_0.01_128x128x128.nii.gz')
 
 # load the model and weights
 model = VNet()
@@ -54,7 +54,7 @@ template = ants.image_read(TEMPLATE_PATH, pixeltype = 'float')
 def upload_form():
     return render_template('upload.html')
 # load input data
-@app.route('/lung/predict', methods=['POST'])
+@app.route('/bleed/predict', methods=['POST'])
 def upload():
     print("inside ---")
     # os.mkdir(app.config['UPLOAD_FOLDER'])

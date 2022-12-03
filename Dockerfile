@@ -5,6 +5,7 @@ FROM nvcr.io/nvidia/tensorflow:22.11-tf2-py3
 RUN mkdir /home/deepbleed
 
 WORKDIR /home/deepbleed
+RUN mkdir /home/deepbleed/template
 RUN mkdir /home/deepbleed/templates
 RUN mkdir /home/deepbleed/blocks
 RUN mkdir /home/deepbleed/models
@@ -12,6 +13,7 @@ RUN mkdir /home/deepbleed/preprocess
 RUN mkdir /home/deepbleed/tools
 COPY * /home/deepbleed/
 COPY templates/ /home/deepbleed/templates/
+COPY template/ /home/deepbleed/template/
 COPY blocks/ /home/deepbleed/blocks/
 COPY models/ /home/deepbleed/models/
 COPY preprocess/ /home/deepbleed/preprocess/
