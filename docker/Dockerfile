@@ -54,7 +54,7 @@ ENV PATH=${FSLDIR}/bin:$PATH \
     LD_LIBRARY_PATH=${FSLDIR}:${LD_LIBRARY_PATH}
 
 RUN mkdir /.local && chmod a+rwx /.local
-RUN git clone git@github.com:deepmd-mvp1/deepbleed.git && chmod a+rw ./deepbleed
+RUN git clone https://github.com/deepmd-mvp1/deepbleed.git && chmod a+rw ./deepbleed
 
 WORKDIR /deepbleed
 RUN cd /deepbleed
