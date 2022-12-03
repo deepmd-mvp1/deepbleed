@@ -7,7 +7,7 @@ WORKDIR /home/deepbleed
 COPY *  /home/deepbleed/
 COPY templates/ /home/deepbleed/
 COPY blocks/ /home/deepbleed/
-COPY model/ /home/deepbleed/
+COPY models/ /home/deepbleed/
 COPY preprocess/ /home/deepbleed/
 COPY tools/ /home/deepbleed/
 # RUN pip  install tensorflow \
