@@ -54,11 +54,12 @@ ENV PATH=${FSLDIR}/bin:$PATH \
     LD_LIBRARY_PATH=${FSLDIR}:${LD_LIBRARY_PATH}
 
 RUN mkdir /.local && chmod a+rwx /.local
+RUN cd /home
 RUN git clone https://github.com/deepmd-mvp1/deepbleed.git && chmod a+rw ./deepbleed
 
-WORKDIR /deepbleed
-RUN cd /deepbleed
-RUN mkdir /deepbleed/weights
+WORKDIR /home/deepbleed
+RUN cd /home/deepbleed
+RUN mkdir /home/deepbleed/weights
 RUN mkdir /home/input
 RUN mkdir /home/output
 # download the weights
