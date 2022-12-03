@@ -55,7 +55,7 @@ ENV PATH=${FSLDIR}/bin:$PATH \
 
 RUN mkdir /.local && chmod a+rwx /.local
 RUN cd /home
-RUN git clone https://github.com/deepmd-mvp1/deepbleed.git
+# RUN git clone https://github.com/deepmd-mvp1/deepbleed.git
 
 WORKDIR /home/deepbleed
 RUN cd /home/deepbleed 
@@ -65,14 +65,15 @@ RUN mkdir /home/deepbleed/weights
 RUN mkdir /home/input
 RUN mkdir /home/output
 # COPY *.PY /home/deepbleed/
-# COPY templates /home/deepbleed/
-# COPY blocks /home/deepbleed/
-# COPY model /home/deepbleed/
-# COPY preprocess /home/deepbleed/
-# COPY tools /home/deepbleed/
+COPY templates /home/deepbleed/
+COPY blocks /home/deepbleed/
+COPY model /home/deepbleed/
+COPY preprocess /home/deepbleed/
+COPY tools /home/deepbleed/
 # COPY ct_template2mni.nii.gz /home/deepbleed/
 # COPY ct2mni.mat /home/deepbleed/
 COPY * /home/deepbleed/
+
 # download the weights
 RUN wget -O weights.zip https://www.dropbox.com/s/v2ptd9mfpo13gcb/mistie_2-20200122T175000Z-001.zip?dl=1  && unzip -j weights.zip 
 RUN for i in _data-00001-of-00002 _data-00000-of-00002 _index; do out=`echo ${i} | sed "s/_/weights./"`; mv ${i} ${out}; done
