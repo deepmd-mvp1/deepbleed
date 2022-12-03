@@ -10,7 +10,7 @@ RUN mkdir /home/deepbleed/blocks
 RUN mkdir /home/deepbleed/models
 RUN mkdir /home/deepbleed/preprocess
 RUN mkdir /home/deepbleed/tools
-
+COPY * /home/deepbleed/
 COPY templates/ /home/deepbleed/templates/
 COPY blocks/ /home/deepbleed/blocks/
 COPY models/ /home/deepbleed/models/
