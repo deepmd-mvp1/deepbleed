@@ -65,11 +65,11 @@ RUN mkdir /home/deepbleed/weights
 RUN mkdir /home/input
 RUN mkdir /home/output
 # COPY *.PY /home/deepbleed/
-COPY templates /home/deepbleed/
-COPY blocks /home/deepbleed/
-COPY model /home/deepbleed/
-COPY preprocess /home/deepbleed/
-COPY tools /home/deepbleed/
+COPY templates/ /home/deepbleed/templates/
+COPY blocks/ /home/deepbleed/blocks/
+COPY model/ /home/deepbleed/model/
+COPY preprocess/ /home/deepbleed/preprocess/
+COPY tools/ /home/deepbleed/tools
 # COPY ct_template2mni.nii.gz /home/deepbleed/
 # COPY ct2mni.mat /home/deepbleed/
 COPY * /home/deepbleed/
