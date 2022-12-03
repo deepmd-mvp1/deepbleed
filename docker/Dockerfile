@@ -1,4 +1,5 @@
-FROM nvcr.io/nvidia/pytorch:20.10-py3
+FROM nvcr.io/nvidia/tensorflow:1903
+# FROM nvcr.io/nvidia/pytorch:20.10-py3
 #install useful packages
 RUN pip  install tensorflow \
     Pillow \
