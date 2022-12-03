@@ -55,17 +55,20 @@ ENV PATH=${FSLDIR}/bin:$PATH \
 
 RUN mkdir /.local && chmod a+rwx /.local
 RUN cd /home
-RUN git clone https://github.com/deepmd-mvp1/deepbleed.git && chmod a+rw ./deepbleed
+RUN git clone https://github.com/deepmd-mvp1/deepbleed.git
 
 WORKDIR /home/deepbleed
-RUN cd /home/deepbleed
+RUN cd /home/deepbleed 
+RUN pwd
+RUN ls -al
 RUN mkdir /home/deepbleed/weights
 RUN mkdir /home/input
 RUN mkdir /home/output
 # download the weights
 RUN wget -O weights.zip https://www.dropbox.com/s/v2ptd9mfpo13gcb/mistie_2-20200122T175000Z-001.zip?dl=1  && unzip -j weights.zip 
 RUN for i in _data-00001-of-00002 _data-00000-of-00002 _index; do out=`echo ${i} | sed "s/_/weights./"`; mv ${i} ${out}; done
-
+RUN pwd
+RUN ls -al
 ENV FLASK_APP=App.py
 # RUN  /home/pipeline.sh 
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
