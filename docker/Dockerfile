@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/tensorflow:1903
+FROM nvcr.io/nvidia/tensorflow:22.11-tf2-py3
 # FROM nvcr.io/nvidia/pytorch:20.10-py3
 #install useful packages
 RUN pip  install tensorflow \
@@ -57,6 +57,7 @@ RUN mkdir /.local && chmod a+rwx /.local
 RUN git clone https://github.com/msharrock/deepbleed && chmod a+rw ./deepbleed
 
 WORKDIR /deepbleed
+RUN cd /deepbleed
 RUN mkdir /deepbleed/weights
 RUN mkdir /home/input
 RUN mkdir /home/output
