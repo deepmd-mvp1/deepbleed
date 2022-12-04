@@ -52,7 +52,7 @@ template = ants.image_read(TEMPLATE_PATH, pixeltype = 'float')
 
 @app.route('/bleed/predict', methods=['GET'])
 def upload_form():
-    return render_template('upload.html')
+    return render_template('uploads.html')
 # load input data
 @app.route('/bleed/predict', methods=['POST'])
 def upload():
