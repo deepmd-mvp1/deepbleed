@@ -71,7 +71,7 @@ def upload():
         for file in files:
             filename = secure_filename(file.filename)
             print(filename)
-            file.save(inputDir +"/" +filename)
+            file.save(IN_DIR +"/" +filename)
             original_image = nib.load(filename)
             original_header = original_image.header
             original_affine = original_image.affine
