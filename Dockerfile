@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/tensorflow:20.11-tf2-py3
+FROM nvcr.io/nvidia/tensorflow:21.04-tf2-py3
 # FROM nvcr.io/nvidia/pytorch:20.10-py3
 #install useful packages
 
