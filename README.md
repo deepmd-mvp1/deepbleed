@@ -87,7 +87,7 @@ $ docker pull msharrock/deepbleed
 
 To run a prediction, start the docker image, link the data path that contains the indir and outdir:
 ```bash
-$ docker run -it msharrock/deepbleed bash -v /path/to/data:/data/ 
+$ docker run -it msharrock/deepbleed -v $(pwd)/input:/data/ bash
 ```
 Pull this repository from github and then run predictions as previously noted
 

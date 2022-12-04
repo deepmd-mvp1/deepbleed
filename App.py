@@ -95,7 +95,7 @@ def upload():
             prediction = register.invert(original_image, prediction, transforms)
             prediction = nib.Nifti1Image(prediction.numpy(), header=original_header, affine=original_affine)
             nib.save(prediction, os.path.join(OUT_DIR, os.path.basename(filename).split(".")[0] +  "_prediction.nii.gz"))
-            sendfile = os.path.join(OUT_DIR, os.path.basename(filename).split(".")[0] +  "_mni_prediction.nii.gz")
+            sendfile = os.path.join(OUT_DIR, os.path.basename(filename).split(".")[0] +  "_prediction.nii.gz")
             return send_file(sendfile, mimetype="application/zip, application/octet-stream, application/x-zip-compressed, multipart/x-zip")
 
 
