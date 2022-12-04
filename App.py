@@ -76,7 +76,7 @@ def upload():
             original_header = original_image.header
             original_affine = original_image.affine
             original_image = convert.nii2ants(original_image)
-            image = nib.load(filename)
+            image = nib.load(IN_DIR +"/" +filename)
             image = extract.brain(image)
             nib.save(image, "predict_extracted.nii.gz")
             image = convert.nii2ants(image)
