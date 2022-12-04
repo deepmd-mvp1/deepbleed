@@ -72,7 +72,7 @@ def upload():
             filename = secure_filename(file.filename)
             print(filename)
             file.save(IN_DIR +"/" +filename)
-            original_image = nib.load(filename)
+            original_image = nib.load(IN_DIR +"/" +filename)
             original_header = original_image.header
             original_affine = original_image.affine
             original_image = convert.nii2ants(original_image)
