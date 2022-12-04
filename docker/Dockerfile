@@ -1,6 +1,24 @@
 FROM nvcr.io/nvidia/tensorflow:22.11-tf2-py3
 # FROM nvcr.io/nvidia/pytorch:20.10-py3
 #install useful packages
+
+RUN mkdir /home/deepbleed
+
+WORKDIR /home/deepbleed
+RUN mkdir /home/deepbleed/template
+RUN mkdir /home/deepbleed/templates
+RUN mkdir /home/deepbleed/blocks
+RUN mkdir /home/deepbleed/models
+RUN mkdir /home/deepbleed/preprocess
+RUN mkdir /home/deepbleed/tools
+COPY * /home/deepbleed/
+COPY templates/ /home/deepbleed/templates/
+COPY template/ /home/deepbleed/template/
+COPY blocks/ /home/deepbleed/blocks/
+COPY models/ /home/deepbleed/models/
+COPY preprocess/ /home/deepbleed/preprocess/
+COPY tools/ /home/deepbleed/tools/
+
 RUN pip  install tensorflow \
     Pillow \
     h5py \
@@ -56,23 +74,6 @@ ENV PATH=${FSLDIR}/bin:$PATH \
 RUN mkdir /.local && chmod a+rwx /.local
 RUN cd /home
 # RUN git clone https://github.com/deepmd-mvp1/deepbleed.git
-RUN mkdir /home/deepbleed
-WORKDIR /home/deepbleed
-RUN cd /home/deepbleed 
-RUN pwd
-RUN ls -al
-RUN mkdir /home/deepbleed/weights
-RUN mkdir /home/input
-RUN mkdir /home/output
-# COPY *.PY /home/deepbleed/
-COPY templates/ /home/deepbleed/templates/
-COPY blocks/ /home/deepbleed/blocks/
-COPY models/ /home/deepbleed/model/
-COPY preprocess/ /home/deepbleed/preprocess/
-COPY tools/ /home/deepbleed/tools/
-# COPY ct_template2mni.nii.gz /home/deepbleed/
-# COPY ct2mni.mat /home/deepbleed/
-COPY * /home/deepbleed/
 
 # download the weights
 RUN wget -O weights.zip https://www.dropbox.com/s/v2ptd9mfpo13gcb/mistie_2-20200122T175000Z-001.zip?dl=1  && unzip -j weights.zip 
